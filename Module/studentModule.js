@@ -15,7 +15,7 @@ module.exports.createstudent = async (req,res,next) => {
 module.exports.updatestudent = async (req,res,next) => {
     try{
         const updatedData = await mongo.selectedDb.collection("student")
-                        .findOneAndUpdate({_id:ObjectId(req.params.studentId)}, 
+                        .findOneAndUpdate({_id:ObjectId(req.params._id)}, 
                                           {$set: {...req.body}}, 
                                           {returnOriginal : true});
         res.send(updatedData);
